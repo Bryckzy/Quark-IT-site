@@ -1,0 +1,25 @@
+{
+  "name": "quark-it",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-slick": "latest",
+    "tsparticles-slim": "latest",
+    "react-tsparticles": "latest",
+    "@google/genai": "latest",
+    "tsparticles-engine": "^2.12.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "typescript": "~5.7.2",
+    "vite": "^6.2.0"
+  }
+}
