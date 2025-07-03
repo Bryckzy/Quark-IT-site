@@ -1,12 +1,13 @@
 
-
 import React from 'react';
 import Slider from "react-slick";
 import Header from './components/Header';
 import Footer from './components/Footer';
 import AnimatedBackground from './components/AnimatedBackground';
 import HistorySection from './components/HistorySection';
-import { SiteIcon, SeoIcon, AdsIcon, StarIcon, WhatsAppIcon } from './components/icons';
+import PricingSection from './components/PricingSection';
+import AdsCalculatorSection from './components/AdsCalculatorSection';
+import { SiteIcon, StarIcon, WhatsAppIcon } from './components/icons';
 
 const WHATSAPP_LINK = "https://wa.me/5511999999999?text=Ol%C3%A1%21+Vim+pelo+site+e+gostaria+de+agendar+minha+consultoria+gratuita.";
 
@@ -94,65 +95,11 @@ const App: React.FC = () => {
                         </a>
                     </section>
                     
-                    {/* Services Section */}
-                    <section id="servicos" className="py-20">
-                        <div className="bg-black/20 backdrop-blur-md p-8 md:p-12 rounded-3xl border border-white/10 shadow-2xl shadow-purple-500/10">
-                            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Nossas Soluções para <span className="gradient-text">Decolar seu Negócio</span></h2>
-                            <div className="space-y-8">
-                                {/* Service 1 */}
-                                <div className="grid md:grid-cols-12 gap-8 items-center">
-                                    <div className="md:col-span-2 flex justify-center">
-                                        <div className="w-24 h-24 rounded-full flex items-center justify-center bg-gradient-to-br from-cyan-500 to-blue-500 shadow-lg shadow-cyan-500/30">
-                                            <SiteIcon className="w-12 h-12 text-white" />
-                                        </div>
-                                    </div>
-                                    <div className="md:col-span-10 text-center md:text-left">
-                                        <h3 className="text-2xl font-bold mb-2">Sites Profissionais de Alta Conversão</h3>
-                                        <p className="text-gray-300 mb-3">Sua empresa merece um site que não só impressiona, mas que transforma visitantes em clientes. Criamos páginas ultra-rápidas e otimizadas para vender.</p>
-                                        <ul className="text-left list-inside list-disc text-gray-400 space-y-1">
-                                            <li>Design moderno e responsivo (perfeito em celular e computador)</li>
-                                            <li>Otimizado para carregar em <span className="font-semibold text-cyan-400">menos de 2 segundos</span></li>
-                                            <li>Foco em SEO para ser encontrado no Google</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                {/* Service 2 */}
-                                <div className="grid md:grid-cols-12 gap-8 items-center">
-                                    <div className="md:col-span-2 flex justify-center">
-                                        <div className="w-24 h-24 rounded-full flex items-center justify-center bg-gradient-to-br from-purple-500 to-pink-500 shadow-lg shadow-purple-500/30">
-                                            <AdsIcon className="w-12 h-12 text-white" />
-                                        </div>
-                                    </div>
-                                    <div className="md:col-span-10 text-center md:text-left">
-                                        <h3 className="text-2xl font-bold mb-2">Anúncios no Google e Meta (Facebook/Instagram)</h3>
-                                        <p className="text-gray-300 mb-3">Pare de gastar dinheiro com anúncios que não funcionam. Criamos e gerenciamos campanhas que trazem clientes qualificados e aumentam seu faturamento.</p>
-                                        <ul className="text-left list-inside list-disc text-gray-400 space-y-1">
-                                            <li>Especialistas em Google Ads e Meta Ads</li>
-                                            <li>Otimização de ROI para <span className="font-semibold text-pink-400">máximo retorno</span></li>
-                                            <li>Relatórios claros para você acompanhar os resultados</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                 {/* Service 3 */}
-                                 <div className="grid md:grid-cols-12 gap-8 items-center">
-                                    <div className="md:col-span-2 flex justify-center">
-                                        <div className="w-24 h-24 rounded-full flex items-center justify-center bg-gradient-to-br from-orange-500 to-yellow-500 shadow-lg shadow-orange-500/30">
-                                            <SeoIcon className="w-12 h-12 text-white" />
-                                        </div>
-                                    </div>
-                                    <div className="md:col-span-10 text-center md:text-left">
-                                        <h3 className="text-2xl font-bold mb-2">SEO & Otimização para Google Maps</h3>
-                                        <p className="text-gray-300 mb-3">Seja a primeira opção quando clientes da sua região procurarem por seus serviços. Otimizamos seu perfil para você dominar as buscas locais.</p>
-                                        <ul className="text-left list-inside list-disc text-gray-400 space-y-1">
-                                            <li>Cadastro e Otimização do Perfil da Empresa no Google</li>
-                                            <li>Estratégias para conseguir <span className="font-semibold text-orange-400">mais avaliações 5 estrelas</span></li>
-                                            <li>Destaque-se da concorrência local</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                    {/* Pricing Section */}
+                    <PricingSection />
+
+                    {/* Ads Calculator Section */}
+                    <AdsCalculatorSection />
                     
                     {/* Platforms Section */}
                     <section id="plataformas" className="py-20 text-center">

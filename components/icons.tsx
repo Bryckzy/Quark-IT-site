@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 interface IconProps {
@@ -31,5 +32,41 @@ export const StarIcon: React.FC<IconProps> = ({ className = "w-5 h-5" }) => (
 export const WhatsAppIcon: React.FC<IconProps> = ({ className = "w-8 h-8" }) => (
     <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox="0 0 24 24" fill="currentColor">
         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.38c1.45.84 3.11 1.33 4.81 1.33h.01c5.46 0 9.91-4.45 9.91-9.91c0-5.46-4.45-9.91-9.91-9.91zM17.22 15.2c-.22-.11-1.3-.64-1.5-.72c-.2-.08-.35-.11-.49.11c-.15.22-.57.72-.7 1.11c-.13.15-.26.17-.48.06c-.22-.11-1-.37-1.9-1.18c-.7-.64-1.18-1.43-1.32-1.67c-.14-.24-.01-.37.1-.48c.1-.11.22-.28.33-.42c.11-.14.15-.24.22-.4c.08-.16.04-.3-.02-.41c-.06-.11-.49-1.18-.68-1.61c-.18-.42-.37-.36-.49-.36h-.45c-.14 0-.37.04-.57.26c-.2.22-.76.75-.76 1.83c0 1.08.78 2.12.89 2.27c.11.15 1.53 2.34 3.72 3.28c.52.23.93.37 1.26.47c.56.17 1.07.15 1.47.09c.45-.07 1.3-.53 1.48-1.04c.19-.51.19-.95.13-1.04c-.06-.09-.2-.15-.41-.26z" />
+    </svg>
+);
+
+export const RocketIcon: React.FC<IconProps> = ({ className = "w-8 h-8 text-white" }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+    </svg>
+);
+
+export const ShieldIcon: React.FC<IconProps> = ({ className = "w-8 h-8 text-white" }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 20.955a12.02 12.02 0 009 2.045 12.02 12.02 0 009-2.045c0-2.002-.345-3.873-.982-5.591z" />
+    </svg>
+);
+
+export const CrownIcon: React.FC<IconProps> = ({ className = "w-8 h-8 text-white" }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M5 18v-2a4 4 0 014-4h6a4 4 0 014 4v2M5 18a2 2 0 00-2 2h18a2 2 0 00-2-2M9 5l3-3 3 3M9 5a3 3 0 00-3 3v3h12V8a3 3 0 00-3-3M9 5h6" />
+    </svg>
+);
+
+export const CheckCircleIcon: React.FC<IconProps> = ({ className = "w-5 h-5" }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+);
+
+export const TrendingUpIcon: React.FC<IconProps> = ({ className = "w-8 h-8 text-white" }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+    </svg>
+);
+
+export const MouseClickIcon: React.FC<IconProps> = ({ className = "w-8 h-8 text-white" }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
     </svg>
 );

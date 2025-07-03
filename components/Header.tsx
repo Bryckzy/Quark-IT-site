@@ -1,5 +1,4 @@
 
-
 import React, { useState, useEffect } from 'react';
 import { WhatsAppIcon } from './icons';
 
@@ -30,7 +29,8 @@ const Header: React.FC<HeaderProps> = ({ whatsappLink }) => {
                 
                 <div className="hidden md:flex items-center space-x-4">
                     <a href="#inicio" className={navLinkClasses}>Início</a>
-                    <a href="#servicos" className={navLinkClasses}>Serviços</a>
+                    <a href="#planos" className={navLinkClasses}>Planos</a>
+                    <a href="#simulador" className={navLinkClasses}>Simulador</a>
                     <a href="#quem-somos" className={navLinkClasses}>Quem Somos</a>
                     <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="bg-white/10 hover:bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold py-2 px-5 rounded-full transition-all duration-300 flex items-center gap-2">
                         <WhatsAppIcon className="h-5 w-5" /> Fale com a Gente
@@ -48,7 +48,8 @@ const Header: React.FC<HeaderProps> = ({ whatsappLink }) => {
             {isMenuOpen && (
                 <div className="md:hidden bg-black/80 backdrop-blur-lg pb-4">
                     <a href="#inicio" className={`block text-center ${navLinkClasses}`} onClick={() => setIsMenuOpen(false)}>Início</a>
-                    <a href="#servicos" className={`block text-center ${navLinkClasses}`} onClick={() => setIsMenuOpen(false)}>Serviços</a>
+                    <a href="#planos" className={`block text-center ${navLinkClasses}`} onClick={() => setIsMenuOpen(false)}>Planos</a>
+                    <a href="#simulador" className={`block text-center ${navLinkClasses}`} onClick={() => setIsMenuOpen(false)}>Simulador</a>
                     <a href="#quem-somos" className={`block text-center ${navLinkClasses}`} onClick={() => setIsMenuOpen(false)}>Quem Somos</a>
                     <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="block text-center bg-white/10 hover:bg-white/20 text-white font-semibold py-3 px-5 rounded-full transition-all duration-300 mx-4 mt-2" onClick={() => setIsMenuOpen(false)}>
                         Fale com a Gente
