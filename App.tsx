@@ -1,13 +1,14 @@
 
+
 import React from 'react';
 import Slider from "react-slick";
 import Header from './components/Header';
 import Footer from './components/Footer';
 import AnimatedBackground from './components/AnimatedBackground';
-import { SiteIcon, SeoIcon, AdsIcon, StarIcon, LightbulbIcon } from './components/icons';
-import { GoogleGenAI, GenerateContentResponse } from "@google/genai";
+import HistorySection from './components/HistorySection';
+import { SiteIcon, SeoIcon, AdsIcon, StarIcon, WhatsAppIcon } from './components/icons';
 
-const WHATSAPP_LINK = "https://wa.me/5511999999999?text=Ol%C3%A1%21+Vim+pelo+site+e+gostaria+de+saber+mais+sobre+os+servi%C3%A7os+da+Quark+IT.";
+const WHATSAPP_LINK = "https://wa.me/5511999999999?text=Ol%C3%A1%21+Vim+pelo+site+e+gostaria+de+agendar+minha+consultoria+gratuita.";
 
 const testimonials = [
   {
@@ -44,13 +45,6 @@ const testimonials = [
     text: "O site ficou lindo, super rápido e passa a confiança que eu precisava. As campanhas de anúncio no Instagram trouxeram mais de 20 novas alunas no primeiro mês.",
     avatar: "https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?w=200&h=200&fit=crop&q=80",
     stars: 5,
-  },
-  {
-    name: "Lucas Mendes",
-    company: "Tech Inova Startup",
-    text: "O gerador de copy com IA é genial. Economiza horas do meu time de marketing e as ideias são sempre criativas e alinhadas com a nossa marca. Uma ferramenta que já se tornou essencial.",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&q=80",
-    stars: 5,
   }
 ];
 
@@ -80,50 +74,6 @@ const App: React.FC = () => {
         ]
     };
 
-    const [isGeneratorLoading, setIsGeneratorLoading] = React.useState(false);
-    const [generatorResult, setGeneratorResult] = React.useState('');
-    const [generatorError, setGeneratorError] = React.useState('');
-
-    const handleGenerateCopy = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        const formData = new FormData(e.currentTarget);
-        const prompt = formData.get('prompt') as string;
-
-        if (!prompt) {
-            setGeneratorError('Por favor, descreva sobre o que deve ser o post.');
-            return;
-        }
-
-        setIsGeneratorLoading(true);
-        setGeneratorResult('');
-        setGeneratorError('');
-
-        try {
-            const ai = new GoogleGenAI({ apiKey: process.env.API_KEY as string });
-            const fullPrompt = `Crie uma legenda para um post de rede social (Instagram/Facebook) sobre "${prompt}".
-            A legenda deve ser criativa, vendedora e gerar engajamento.
-            Me dê 3 opções completas.
-            Cada opção deve incluir:
-            - Um título chamativo.
-            - O texto da legenda com quebras de linha.
-            - Emojis relevantes.
-            - Um conjunto de 5 a 7 hashtags populares e relevantes.
-            Formate a resposta como texto simples, separando claramente cada uma das 3 opções.`;
-
-            const response: GenerateContentResponse = await ai.models.generateContent({
-              model: 'gemini-2.5-flash-preview-04-17',
-              contents: [{ parts: [{ text: fullPrompt }] }],
-            });
-
-            setGeneratorResult(response.text);
-        } catch (error) {
-            console.error("Erro ao gerar copy:", error);
-            setGeneratorError('Houve um erro ao se comunicar com a IA. Tente novamente mais tarde.');
-        } finally {
-            setIsGeneratorLoading(false);
-        }
-    };
-
     return (
         <>
             <AnimatedBackground />
@@ -134,13 +84,13 @@ const App: React.FC = () => {
                     {/* Hero Section */}
                     <section id="inicio" className="text-center py-20 animate-fadeInUp">
                         <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight">
-                            Colocamos seu negócio <br /> na <span className="gradient-text">primeira página do Google</span>
+                            A vitrine digital que seu negócio precisa. <br /> <span className="gradient-text">Pronta para atrair e vender.</span>
                         </h1>
                         <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-                            Sites ultra-rápidos, SEO local e anúncios que trazem clientes de verdade. Apareça para quem te procura.
+                           Com sites de alta performance, SEO que funciona e anúncios inteligentes, colocamos você na frente de quem está pronto para comprar.
                         </p>
                         <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="inline-block bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold text-lg py-4 px-10 rounded-full shadow-lg hover:scale-105 transition-transform duration-300 animate-pulse-glow">
-                            Quero Dobrar Minhas Vendas
+                            Agende sua Consultoria Gratuita
                         </a>
                     </section>
                     
@@ -255,57 +205,15 @@ const App: React.FC = () => {
                         </Slider>
                     </section>
 
-                    {/* AI Copy Generator Section */}
-                    <section id="gerador" className="py-20">
-                      <div className="bg-gradient-to-br from-purple-900/50 via-black/30 to-pink-900/50 backdrop-blur-md p-8 md:p-12 rounded-3xl border border-white/10 shadow-2xl shadow-purple-500/10">
-                          <div className="text-center">
-                              <LightbulbIcon className="w-16 h-16 mx-auto mb-4 text-yellow-300" />
-                              <h2 className="text-3xl md:text-4xl font-bold mb-4">Sem ideias para postar?</h2>
-                              <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
-                                  Use nossa IA para gerar legendas criativas para suas redes sociais em segundos. É grátis!
-                              </p>
-                          </div>
-                          <form onSubmit={handleGenerateCopy} className="max-w-2xl mx-auto">
-                              <div className="flex flex-col sm:flex-row gap-4 mb-4">
-                                  <input 
-                                      type="text"
-                                      name="prompt"
-                                      placeholder="Ex: promoção de dia das mães na minha confeitaria"
-                                      className="flex-grow bg-white/10 border border-white/20 rounded-full py-3 px-6 text-white placeholder-gray-400 focus:ring-2 focus:ring-purple-500 focus:outline-none transition-all duration-300"
-                                      disabled={isGeneratorLoading}
-                                  />
-                                  <button 
-                                      type="submit"
-                                      className="bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:scale-105 transition-transform duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                                      disabled={isGeneratorLoading}
-                                  >
-                                      {isGeneratorLoading ? 'Gerando...' : 'Gerar Legenda'}
-                                  </button>
-                              </div>
-                              {generatorError && <p className="text-red-400 text-center mt-2">{generatorError}</p>}
-                          </form>
-                          
-                          {isGeneratorLoading && (
-                            <div className="text-center mt-8">
-                                <p className="text-lg text-gray-300">Nossos robôs estão pensando... 🤖</p>
-                            </div>
-                          )}
-
-                          {generatorResult && (
-                              <div className="mt-8 bg-black/30 p-6 rounded-lg border border-white/10">
-                                  <h3 className="text-xl font-bold mb-4 gradient-text">Aqui estão suas legendas!</h3>
-                                  <pre className="whitespace-pre-wrap text-gray-300 font-sans">{generatorResult}</pre>
-                              </div>
-                          )}
-                      </div>
-                    </section>
+                    {/* History Section */}
+                    <HistorySection />
                 </main>
                 
                 <Footer />
 
                 {/* Floating WhatsApp Button */}
-                <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 hover:scale-110 transition-all duration-300 z-50 flex items-center justify-center">
-                    <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/whatsapp-white-icon.png" alt="WhatsApp" className="h-8 w-8" />
+                <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300 z-50 flex items-center justify-center animate-whatsapp-pulse">
+                    <WhatsAppIcon className="h-8 w-8 text-white" />
                 </a>
             </div>
         </>
