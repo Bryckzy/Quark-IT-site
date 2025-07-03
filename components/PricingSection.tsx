@@ -30,8 +30,8 @@ const products = [
     {
         icon: <AdsIcon className="w-8 h-8 text-white" />,
         title: 'Gestão de Meta Ads*',
-        price: 'A partir de R$200',
-        priceDetail: '/mês',
+        price: 'R$200*',
+        priceDetail: '/ano',
         description: 'Campanhas inteligentes no Instagram e Facebook para atrair clientes qualificados.',
         features: ['Criação de até 2 campanhas mensais', 'Segmentação por localização e interesse', 'Suporte na definição de objetivos', 'Relatórios mensais de desempenho'],
         idealFor: 'Quem quer vender em escala sem queimar caixa com anúncios.',
