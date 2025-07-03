@@ -111,7 +111,7 @@ const App: React.FC = () => {
                                         <p className="text-gray-300 mb-3">Sua empresa merece um site que não só impressiona, mas que transforma visitantes em clientes. Criamos páginas ultra-rápidas e otimizadas para vender.</p>
                                         <ul className="text-left list-inside list-disc text-gray-400 space-y-1">
                                             <li>Design moderno e responsivo (perfeito em celular e computador)</li>
-                                            <li>Otimizado para carregar em menos de 2 segundos</li>
+                                            <li>Otimizado para carregar em <span className="font-semibold text-cyan-400">menos de 2 segundos</span></li>
                                             <li>Foco em SEO para ser encontrado no Google</li>
                                         </ul>
                                     </div>
@@ -128,7 +128,7 @@ const App: React.FC = () => {
                                         <p className="text-gray-300 mb-3">Pare de gastar dinheiro com anúncios que não funcionam. Criamos e gerenciamos campanhas que trazem clientes qualificados e aumentam seu faturamento.</p>
                                         <ul className="text-left list-inside list-disc text-gray-400 space-y-1">
                                             <li>Especialistas em Google Ads e Meta Ads</li>
-                                            <li>Otimização de ROI para máximo retorno</li>
+                                            <li>Otimização de ROI para <span className="font-semibold text-pink-400">máximo retorno</span></li>
                                             <li>Relatórios claros para você acompanhar os resultados</li>
                                         </ul>
                                     </div>
@@ -145,7 +145,7 @@ const App: React.FC = () => {
                                         <p className="text-gray-300 mb-3">Seja a primeira opção quando clientes da sua região procurarem por seus serviços. Otimizamos seu perfil para você dominar as buscas locais.</p>
                                         <ul className="text-left list-inside list-disc text-gray-400 space-y-1">
                                             <li>Cadastro e Otimização do Perfil da Empresa no Google</li>
-                                            <li>Estratégias para conseguir mais avaliações 5 estrelas</li>
+                                            <li>Estratégias para conseguir <span className="font-semibold text-orange-400">mais avaliações 5 estrelas</span></li>
                                             <li>Destaque-se da concorrência local</li>
                                         </ul>
                                     </div>
