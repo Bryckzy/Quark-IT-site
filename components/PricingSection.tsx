@@ -2,13 +2,13 @@
 import React, { useState } from 'react';
 import { SiteIcon, SeoIcon, AdsIcon, CheckCircleIcon, RocketIcon, ShieldIcon, CrownIcon } from './icons';
 
-const WHATSAPP_LINK = "https://wa.me/5511999999999?text=Ol%C3%A1%21+Vim+pelo+site+e+tenho+interesse+em+um+de+seus+planos.";
+const WHATSAPP_LINK = "https://wa.me/5511911221418?text=Ol%C3%A1%21+Vim+pelo+site+e+tenho+interesse+em+um+de+seus+planos.";
 
 const products = [
     {
         icon: <SiteIcon className="w-8 h-8 text-white" />,
         title: 'Site Profissional',
-        price: 'R$150',
+        price: '150',
         priceDetail: 'pagamento único',
         description: 'Tenha um site bonito, rápido e pronto para impressionar em até 48h.',
         features: ['Página única com até 5 blocos', 'Responsivo (mobile + desktop)', 'Botão direto para WhatsApp', 'Hospedagem gratuita por 30 dias'],
@@ -19,7 +19,7 @@ const products = [
     {
         icon: <SeoIcon className="w-8 h-8 text-white" />,
         title: 'SEO Local',
-        price: 'R$200',
+        price: '200',
         priceDetail: 'pagamento único',
         description: 'Coloque sua empresa no mapa do Google e seja encontrado por clientes na sua região.',
         features: ['Cadastro/otimização no Google Meu Negócio', 'Inserção de palavras-chave locais', 'Atualização de fotos, links e dados', 'Relatório simples de visibilidade'],
@@ -29,11 +29,11 @@ const products = [
     },
     {
         icon: <AdsIcon className="w-8 h-8 text-white" />,
-        title: 'Gestão de Meta Ads*',
-        price: 'R$200*',
-        priceDetail: '/ano',
-        description: 'Campanhas inteligentes no Instagram e Facebook para atrair clientes qualificados.',
-        features: ['Criação de até 2 campanhas mensais', 'Segmentação por localização e interesse', 'Suporte na definição de objetivos', 'Relatórios mensais de desempenho'],
+        title: 'Gestão de Anúncios*',
+        monthlyPrice: '99,90',
+        annualPrice: '899,90',
+        description: 'Campanhas inteligentes no Instagram, Facebook e Google para atrair clientes qualificados.',
+        features: ['Até 10 campanhas simultâneas', 'Otimização para Google & Meta Ads', 'Suporte na definição de objetivos', 'Relatórios mensais de desempenho'],
         idealFor: 'Quem quer vender em escala sem queimar caixa com anúncios.',
         gradientClass: 'from-pink-500 to-rose-500',
         shadowClass: 'hover:shadow-rose-500/30'
@@ -103,49 +103,83 @@ const ToggleButton = ({ showPlans, setShowPlans }) => (
     </div>
 );
 
-const PricingCard = ({ item }) => (
-    <div className={`bg-[#1d1a33] rounded-2xl h-full flex flex-col shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 overflow-hidden border border-white/10 ${item.shadowClass}`}>
-        {/* Gradient Header */}
-        <div className={`px-8 py-6 bg-gradient-to-r ${item.gradientClass}`}>
-            <div className="flex items-center gap-4">
-                <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-lg bg-black/20 backdrop-blur-sm">
-                    {item.icon}
-                </div>
-                <h3 className="text-2xl font-bold text-white">{item.title}</h3>
-            </div>
-        </div>
+const PricingCard = ({ item }) => {
+    const [isAnnual, setIsAnnual] = useState(true);
 
-        <div className="p-8 flex-grow flex flex-col">
-             <div className="mb-6">
-                <span className="text-4xl font-black gradient-text">{item.price}</span>
-                <span className="text-gray-400 ml-2">{item.priceDetail}</span>
-            </div>
-            
-            <p className="text-gray-300 mb-6 min-h-[60px]">{item.description}</p>
-            
-            <ul className="space-y-3 mb-8 flex-grow">
-                {item.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                        <CheckCircleIcon className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
-                        <span className="text-gray-300">{feature}</span>
-                    </li>
-                ))}
-            </ul>
-
-            {item.idealFor && (
-                <p className="text-xs text-purple-200/70 italic bg-purple-500/10 p-3 rounded-lg mt-auto">
-                    <strong>Ideal para:</strong> {item.idealFor}
-                </p>
-            )}
-        </div>
+    const hasToggle = item.monthlyPrice && item.annualPrice;
+    
+    const price = hasToggle 
+        ? (isAnnual ? item.annualPrice : item.monthlyPrice) 
+        : item.price;
         
-        <div className="p-8 pt-0 mt-auto">
-            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-white/10 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:bg-white/20 hover:scale-105 transition-all duration-300">
-                Contratar Agora
-            </a>
+    const priceDetail = hasToggle 
+        ? (isAnnual ? '/ano' : '/mês') 
+        : item.priceDetail;
+
+    const savings = hasToggle ? Math.round((parseFloat(item.monthlyPrice.replace(',', '.')) * 12 - parseFloat(item.annualPrice.replace(',', '.'))) / (parseFloat(item.monthlyPrice.replace(',', '.')) * 12) * 100) : 0;
+
+    return (
+        <div className={`bg-[#1d1a33] rounded-2xl h-full flex flex-col shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 overflow-hidden border border-white/10 ${item.shadowClass}`}>
+            <div className={`px-8 py-6 bg-gradient-to-r ${item.gradientClass}`}>
+                <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-lg bg-black/20 backdrop-blur-sm">
+                        {item.icon}
+                    </div>
+                    <h3 className="text-2xl font-bold text-white">{item.title}</h3>
+                </div>
+            </div>
+
+            <div className="p-8 flex-grow flex flex-col">
+                 {hasToggle && (
+                    <div className="flex justify-center mb-6">
+                        <div className="relative flex items-center p-1 bg-black/30 border border-white/10 rounded-full text-sm">
+                            <button onClick={() => setIsAnnual(false)} className={`relative z-10 w-24 py-1.5 rounded-full transition-colors duration-300 ${!isAnnual ? 'text-white' : 'text-gray-400'}`} aria-pressed={!isAnnual}>
+                                Mensal
+                            </button>
+                            <button onClick={() => setIsAnnual(true)} className={`relative z-10 w-24 py-1.5 rounded-full transition-colors duration-300 ${isAnnual ? 'text-white' : 'text-gray-400'}`} aria-pressed={isAnnual}>
+                                Anual <span className="text-yellow-300 font-bold text-xs">-{savings}%</span>
+                            </button>
+                            <span
+                                aria-hidden="true"
+                                className={`absolute top-1 bottom-1 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full transition-transform duration-300 ease-in-out ${
+                                    isAnnual ? 'transform translate-x-full' : 'transform translate-x-0'
+                                }`}
+                                style={{ width: 'calc(50% - 4px)', left: '4px' }}
+                            ></span>
+                        </div>
+                    </div>
+                )}
+                 <div className={`mb-6 ${hasToggle ? 'text-center' : ''}`}>
+                    <span className="text-4xl font-black gradient-text">R${price}</span>
+                    <span className="text-gray-400 ml-2">{priceDetail}</span>
+                </div>
+                
+                <p className="text-gray-300 mb-6 min-h-[60px]">{item.description}</p>
+                
+                <ul className="space-y-3 mb-8 flex-grow">
+                    {item.features.map((feature, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                            <CheckCircleIcon className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
+                            <span className="text-gray-300">{feature}</span>
+                        </li>
+                    ))}
+                </ul>
+
+                {item.idealFor && (
+                    <p className="text-xs text-purple-200/70 italic bg-purple-500/10 p-3 rounded-lg mt-auto">
+                        <strong>Ideal para:</strong> {item.idealFor}
+                    </p>
+                )}
+            </div>
+            
+            <div className="p-8 pt-0 mt-auto">
+                <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-white/10 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:bg-white/20 hover:scale-105 transition-all duration-300">
+                    Contratar Agora
+                </a>
+            </div>
         </div>
-    </div>
-);
+    );
+};
 
 
 const PricingSection: React.FC = () => {

@@ -9,7 +9,7 @@ import PricingSection from './components/PricingSection';
 import AdsCalculatorSection from './components/AdsCalculatorSection';
 import { SiteIcon, StarIcon, WhatsAppIcon } from './components/icons';
 
-const WHATSAPP_LINK = "https://wa.me/5511999999999?text=Ol%C3%A1%21+Vim+pelo+site+e+gostaria+de+agendar+minha+consultoria+gratuita.";
+const WHATSAPP_LINK = "https://wa.me/5511911221418?text=Ol%C3%A1%21+Vim+pelo+site+e+gostaria+de+agendar+minha+consultoria+gratuita.";
 
 const testimonials = [
   {
@@ -129,19 +129,19 @@ const App: React.FC = () => {
                         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">O que <span className="gradient-text">Falam de Nós</span></h2>
                         <Slider {...sliderSettings}>
                             {testimonials.map((testimonial, index) => (
-                                <div key={index} className="px-4">
-                                    <div className="bg-[#110f24]/70 backdrop-blur-sm p-8 rounded-2xl border border-white/10 h-full flex flex-col justify-between shadow-lg">
-                                        <div>
-                                            <div className="flex items-center mb-4">
-                                                <img src={testimonial.avatar} alt={testimonial.name} className="w-14 h-14 rounded-full object-cover mr-4 border-2 border-purple-500" />
+                                <div key={index} className="px-4 h-full">
+                                    <div className="bg-[#110f24]/70 backdrop-blur-sm p-4 rounded-2xl border border-white/10 h-full flex flex-col justify-between shadow-lg">
+                                        <div className="flex-grow">
+                                            <div className="flex items-center mb-3">
+                                                <img src={testimonial.avatar} alt={testimonial.name} className="w-10 h-10 rounded-full object-cover mr-3 border-2 border-purple-500" />
                                                 <div>
-                                                    <h4 className="font-bold text-white text-lg">{testimonial.name}</h4>
+                                                    <h4 className="font-bold text-white text-base">{testimonial.name}</h4>
                                                     <p className="text-purple-300 text-sm">{testimonial.company}</p>
                                                 </div>
                                             </div>
-                                            <p className="text-gray-300 italic mb-4">"{testimonial.text}"</p>
+                                            <p className="text-gray-300 italic mb-3 text-sm leading-normal">"{testimonial.text}"</p>
                                         </div>
-                                        <div className="flex">
+                                        <div className="flex mt-auto">
                                             {Array(testimonial.stars).fill(0).map((_, i) => (
                                                 <StarIcon key={i} className="w-5 h-5 text-yellow-400" />
                                             ))}
